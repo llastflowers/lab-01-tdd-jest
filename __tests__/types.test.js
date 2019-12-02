@@ -40,6 +40,10 @@ describe('validator module', () => {
 
     it('properly tells if a value is an array', () => {
       expect(isArray([1])).toBeTruthy();
+      expect(isArray([2, 4, 7])).toBeTruthy();
+      expect(isArray(['cat', 'dog', 'bird'])).toBeTruthy();
+      expect(isArray(6)).toBeFalsy();
+      expect(isArray('yes')).toBeFalsy();
     })
 
   });
