@@ -6,7 +6,8 @@ const {
   castToString,
   isBoolean,
   castToBoolean,
-  isArray
+  isArray,
+  isObject
 } = require('../lib/types.js');
 
 describe('validator module', () => {
@@ -44,6 +45,14 @@ describe('validator module', () => {
       expect(isArray(['cat', 'dog', 'bird'])).toBeTruthy();
       expect(isArray(6)).toBeFalsy();
       expect(isArray('yes')).toBeFalsy();
+    })
+
+    it('properly tells if a value is an object', () => {
+      expect(isObject({})).toBeTruthy();
+      expect(isObject({'type': 'cat'})).toBeTruthy();
+      expect(isObject({'type': 'cat','name': 'willow'})).toBeTruthy();
+      expect(isObject(5)).toBeFalsy();
+      expect(isObject('cat')).toBeFalsy();
     })
 
   });
